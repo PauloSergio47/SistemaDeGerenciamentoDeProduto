@@ -19,4 +19,8 @@ public class Produto {
 		return preco;
 	}
 	
+	public String toString() {
+		return "Produto: " +nome+", Preço: R$ " +preco;
+	}
+	
 }

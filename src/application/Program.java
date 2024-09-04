@@ -29,26 +29,7 @@ public class Program {
 		
 		int escolha = sc.nextInt();
 		
-		switch(escolha) {
-		case 1:
-			escolha = 1;
-			break;
-		case 2:
-			escolha = 2;
-			break;
-		case 3:
-			escolha = 3;
-			break;
-		case 4:
-			escolha = 4;
-			break;
-		case 6:
-			escolha = 6;
-			break;
-		default:
-			System.out.println("Opção invalida!");
-			return;
-		}
+		MenuDeEscolha.processarEscolha(escolha);
 		
 		if(escolha == 1) {
 			System.out.println("Nome do Produto: ");
@@ -68,10 +49,8 @@ public class Program {
 		}
 		
 		else if(escolha == 3) {
-			for(Produto lista : produtos) {
-				System.out.println("Lista de Produtos: "+lista);
-			}
-		}
+				System.out.println("Lista de Produtos: ");
+				pedido.exibirProduto();	}
 		
 		}while(escolha != 5);
 		
