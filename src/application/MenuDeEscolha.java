@@ -16,6 +16,9 @@ public class MenuDeEscolha {
 		case 4:
 			escolha = 4;
 			break;
+		case 5:
+			escolha = 5;
+			break;
 		case 6:
 			escolha = 6;
 			break;

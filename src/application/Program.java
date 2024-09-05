@@ -7,14 +7,13 @@ import entities.Produto;
 
 public class Program {
 
-	private static int escolha;
-
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		
 		Pedido pedido = new Pedido();
 		
+		int escolha = 0;
 		
 		do {
 		
@@ -27,7 +26,7 @@ public class Program {
 		System.out.println("5. Finalizar Pedido");
 		System.out.println("6. Sair");
 		
-		int escolha = sc.nextInt();
+		escolha = sc.nextInt();
 		
 		MenuDeEscolha.processarEscolha(escolha);
 		
@@ -37,9 +36,14 @@ public class Program {
 			System.out.println("Preço do Produto: ");
 			double P = sc.nextDouble();
 			
+			if(P > 0) {
+			
 			Produto novoProdutos = new Produto(N, P);
 			
 			pedido.adicionarProduto(novoProdutos);
+			}else {
+				System.out.println("Preço invalido!");
+			}
 		}
 		
 		else if(escolha == 2) {
@@ -50,18 +54,22 @@ public class Program {
 		
 		else if(escolha == 3) {
 				System.out.println("Lista de Produtos: ");
-				pedido.exibirProduto();	}
+				pedido.exibirProduto();
+				System.out.println();
+		}
 		
-		}while(escolha != 5);
+		else if (escolha == 4) {
+			double total = pedido.calcularTotal();
+			System.out.printf("Total dos Pedidos: R$ %.2f%n", total);
+			System.out.println();
+		}
 		
+		else if (escolha == 5) {
+			pedido.finalizarPedido();
+			System.out.println();
+		}
 		
-		/*
-		pedido.adicionarProduto(produto1); ---------x
-		pedido.adicionarProduto(produto2);
-		
-		pedido.exibirProduto();
-		pedido.finalizarPedido();
-		*/
+		}while(escolha != 6);
 
 		sc.close();
 	}

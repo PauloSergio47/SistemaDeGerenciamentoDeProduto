@@ -32,7 +32,7 @@ public class Pedido {
 	        }
 	    }
 	
-	double calcularTotal() {
+	public double calcularTotal() {
 		double total = 0;
 		for(Produto produto : produtos) {
 			total += produto.getPreco();
